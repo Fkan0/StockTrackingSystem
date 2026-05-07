@@ -52,67 +52,100 @@ def error_controller(main, storage=None, barcode=None, item_name=None, price=Non
         
     return True
 
+
+
 #Stok yenileme fonksiyonu
 def add(main, storage, barcode, number):
 
+    #Hata kontrol bloğu
     if not error_controller(main=main, storage=storage, barcode=barcode, number=number):
         return
+
+
 
 #Fiyat yenileme foksiyonu
 def new_price(main, storage, barcode, price):
 
+    #Hata kontrol bloğu
     if not error_controller(main=main, storage=storage, barcode=barcode, price=price):
         return
+
+
 
 #Yeni ürün ekleme fonksiyonu
 def new_add(main, storage, barcode, item_name, price, number):
 
+    #Hata kontrol bloğu
     if not error_controller(main=main, storage=storage, item_name=item_name, price=price, number=number):
         return
+
+
 
 #Ürün silme fonksiyonu
 def delete(main, storage, barcode):
 
+    #Hata kontrol bloğu
     if not error_controller(main=main, storage=storage, barcode=barcode):
         return
+
+
 
 #Ürün özelliklerine bakma fonksiyonu
 def look(main, storage, barcode):
 
+    #Hata kontrol bloğu
     if not error_controller(main=main, storage=storage, barcode=barcode):
         return
+
+
 
 #Yeni depo ekleme fonksiyonu
 def add_storage(main, storage):
 
+    #Hata kontrol bloğu
     if not error_controller(main=main):
         return
+
+
 
 #Depo silme fonksiyonu
 def delete_storage(main, storage):
 
+    #Hata kontrol bloğu
     if not error_controller(main=main, storage=storage):
         return
+
+
 
 #Depo sıfırlama fonksiyonu
 def clear_storage(main, storage):
 
+    #Hata kontrol bloğu
     if not error_controller(main=main, storage=storage):
         return
+
+
 
 #Depo bakma fonksiyonu
 def look_storage(main, storage):
 
+    #Hata kontrol bloğu
     if not error_controller(main=main, storage=storage):
         return
+
+
 
 #Yardım fonksiyonu
 def help():
     pass
 
+
+
 #Klavuz fonksiyonu
 def guide():
     pass
+
+
 
 #Komut yürütücü fonksiyon
 def command_player(command, list):
@@ -143,6 +176,7 @@ def command_player(command, list):
                 print(f"system: pametre hatası: {e}")
     else:
         print(f"system: '{command_key}' geçerli bir komut değil")
+
 
 
 #Komut listesi
