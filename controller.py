@@ -1,3 +1,4 @@
+#Hata kontrolcü fonksiyonu
 def error_controller(main, storage=None, barcode=None, item_name=None, price=None, number=None):
     #Depo kontrolcüsü
     if storage is not None:
@@ -51,36 +52,65 @@ def error_controller(main, storage=None, barcode=None, item_name=None, price=Non
         
     return True
 
+#Stok yenileme fonksiyonu
 def add(main, storage, barcode, number):
-    pass
 
+    if not error_controller(main=main, storage=storage, barcode=barcode, number=number):
+        return
+
+#Fiyat yenileme foksiyonu
 def new_price(main, storage, barcode, price):
-    pass
 
+    if not error_controller(main=main, storage=storage, barcode=barcode, price=price):
+        return
+
+#Yeni ürün ekleme fonksiyonu
 def new_add(main, storage, barcode, item_name, price, number):
-    pass
 
-def delete(main,storage, barcode):
-    pass
+    if not error_controller(main=main, storage=storage, item_name=item_name, price=price, number=number):
+        return
 
+#Ürün silme fonksiyonu
+def delete(main, storage, barcode):
+
+    if not error_controller(main=main, storage=storage, barcode=barcode):
+        return
+
+#Ürün özelliklerine bakma fonksiyonu
 def look(main, storage, barcode):
-    pass
 
+    if not error_controller(main=main, storage=storage, barcode=barcode):
+        return
+
+#Yeni depo ekleme fonksiyonu
 def add_storage(main, storage):
-    pass
 
+    if not error_controller(main=main):
+        return
+
+#Depo silme fonksiyonu
 def delete_storage(main, storage):
-    pass
 
+    if not error_controller(main=main, storage=storage):
+        return
+
+#Depo sıfırlama fonksiyonu
 def clear_storage(main, storage):
-    pass
 
+    if not error_controller(main=main, storage=storage):
+        return
+
+#Depo bakma fonksiyonu
 def look_storage(main, storage):
-    pass
 
+    if not error_controller(main=main, storage=storage):
+        return
+
+#Yardım fonksiyonu
 def help():
     pass
 
+#Klavuz fonksiyonu
 def guide():
     pass
 
