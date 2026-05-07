@@ -7,16 +7,10 @@ def new_price(storage, barcode, price):
 def new_add(storage, barcode, item_name, price, number):
     pass
 
-def delete_barcode(storage, barcode):
+def delete(storage, barcode):
     pass
 
-def delete_item_name(storage_name):
-    pass
-
-def look_barcode(storage, barcode):
-    pass
-
-def look_item_name(storage, item_name):
+def look(storage, barcode):
     pass
 
 def add_storage(storage):
@@ -39,21 +33,21 @@ def guide():
 
 
 command_list = {
-    "ürün-tazele" : add,
-    "fiyat-tazele" : new_price,
-    "ürün-ekle" : new_add,
-    "ürün-sil" : delete_barcode,
-    "ürün-sil -barcode" : delete_barcode,
-    "ürün-sil -isim" : delete_item_name,
-    "ürün-bak" : look_barcode,
-    "ürün-bak -barkod" : look_barcode,
-    "ürün-bak -isim" : look_item_name,
-    "yeni-depo" : add_storage,
-    "depo-sil" : delete_storage,
-    "depo-sıfırla" : clear_storage,
-    "depo-bak" : look_storage,
-    "help" : help,
+    "ürün" : {
+        "ekle" : new_add,
+        "sil" : delete,
+        "bak" : look,
+        "tazele" : {
+            "stok" : add,
+            "fiyat" : new_price,
+        }
+    },
+    "depo" : {
+        "ekle" : add_storage,
+        "sıfırla" : clear_storage,
+        "depo bak" : look_storage,
+        "depo sil" : delete_storage
+    },
     "yardım" : help,
-    "guide" : guide,
     "klavuz" : guide
 }
