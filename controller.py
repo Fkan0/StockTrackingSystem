@@ -137,7 +137,7 @@ def look_storage(main, storage):
 
 #Mecvüt depoları listeler
 def storages(main):
-    print(f"mevcut depolarınız: {main}")
+    print(f"mevcut depolarınız: {list(main.keys())}")
 
 
 
