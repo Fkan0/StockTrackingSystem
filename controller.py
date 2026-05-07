@@ -55,23 +55,26 @@ def error_controller(main, storage=None, barcode=None, item_name=None, price=Non
 
 
 #Stok yenileme fonksiyonu
-def add(main, storage, barcode, number):
+def add(main, barcode, number):
 
     #Hata kontrol bloğu
-    if not error_controller(main=main, storage=storage, barcode=barcode, number=number):
+    if not error_controller(main=main, barcode=barcode, number=number):
         return
 
-    if barcode not in main[storage]:
-        print("system: ürün bulunamadı")
-        return
-    
-    #Stok yenileme bloğu
-    item_name = main[storage][barcode]["item_name"]
-    main[storage][barcode]["stock"] += int(number)
-    stock_number = main[storage][barcode]["stock"]
+    #Stoktan bulunan bir ürünü ekleme
+    if barcode in main:
 
-    print(f"process: başarıyla '{item_name}' ürününün stok sayısı '{number}' arttırıldı")
-    print(f"process: {item_name}' ürününün güncel stok sayısı {stock_number}")
+        name = main[barcode]["item_name"]
+        main[barcode]["stock"] += int(number)
+        stock_number = main[barcode]["stock"]
+
+        print(f"process: başarıyla '{name}' ürününün stok sayısı '{number}' arttırıldı")
+        print(f"process: {name}' ürününün güncel stok sayısı {stock_number}")
+
+    #Stokta bulunmayan bir ürünü ekleme
+    else:
+        print("ürün bulunamadı")
+        return
 
 #Fiyat yenileme foksiyonu
 def new_price(main, storage, barcode, price):
@@ -86,7 +89,7 @@ def new_price(main, storage, barcode, price):
 def new_add(main, storage, barcode, item_name, price, number):
 
     #Hata kontrol bloğu
-    if not error_controller(main=main, storage=storage, item_name=item_name, price=price, number=number):
+    if not error_controller(main=main, barcode=barcode, storage=storage, item_name=item_name, price=price, number=number):
         return
 
 
@@ -193,7 +196,6 @@ def command_player(command, list, main):
         
         elif callable(code):
             command_parameter.insert(0, main)
-
             try:
                 code(*command_parameter)
             except TypeError as e:
