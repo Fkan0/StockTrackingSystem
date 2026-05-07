@@ -61,7 +61,16 @@ def add(main, storage, barcode, number):
     if not error_controller(main=main, storage=storage, barcode=barcode, number=number):
         return
 
-
+    if barcode not in main[storage]:
+        print("system: ürün bulunamadı")
+        return
+    
+    #Stok yenileme bloğu
+    item_name = main[storage][barcode]["item_name"]
+    stock_number = main[storage][barcode]["stock"]
+    stock_number += int(number)
+    print(f"function: başarıyla '{item_name}' ürününün stok sayısı '{number}' arttırıldı")
+    print(f"function: {item_name} ürününün güncel stok sayısı {stock_number}")
 
 #Fiyat yenileme foksiyonu
 def new_price(main, storage, barcode, price):
