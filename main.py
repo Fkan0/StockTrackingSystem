@@ -15,4 +15,6 @@ while True:
 
     locate = "anasayfa"
     command = input(": ")
+    main = "stock"
+    
     controller.command_player(command, controller.command_list)
