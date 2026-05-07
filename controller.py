@@ -1,28 +1,81 @@
-def add(storage, barcode, number):
-    print("başarılı")
+def error_controller(main, storage=None, barcode=None, item_name=None, price=None, number=None):
+    #Depo kontrolcüsü
+    if storage is not None:
+        if storage not in main:
+            print("system: depo bulunamadı")
+            return False
 
-def new_price(storage, barcode, price):
+    #Barkod kontrolcusü
+    if barcode is not None:
+        #Barkod sadece sayılardanmı oluşuyor
+        if not barcode.isdecimal():
+            print("system: barkod sadece sayılardanoluşmalı")
+            return False
+        
+        #Barkod 13 hanelimi
+        if len(barcode) != 13:
+            print("system: barkod 13 haneli olmalı")
+            return False
+
+    #Ürün ismi kontrolcüsü
+    if item_name is not None:
+        #Çok kısa isim ise
+        if len(item_name) < 2:
+            print("system: ürün ismi en az 2 karakter olmalı")
+            return False
+        
+        #Çok uzun isim is
+        if len(item_name) > 50:
+            print("system: ürün ismi çok uzun (maks 50 karakter)")
+            return False
+
+    #Ürün fiyatı kontrolcüsü
+    if price is not None:
+        clean_price = price.replace(",", ".")
+
+        try:
+            val = float(clean_price)
+            if val <= 0:
+                print("system: fiyat 0'dan büyük olmalı")
+                return False
+            
+        except ValueError:
+            print("system: geçersiz fiyat formatı")
+            return False
+        
+    #ürün adedini kontrol eder
+    if number is not None:
+        if not number.isdecimal():
+            print("system: ürün adedi tam sayı olmalı")
+            return False
+        
+    return True
+
+def add(main, storage, barcode, number):
     pass
 
-def new_add(storage, barcode, item_name, price, number):
+def new_price(main, storage, barcode, price):
     pass
 
-def delete(storage, barcode):
+def new_add(main, storage, barcode, item_name, price, number):
     pass
 
-def look(storage, barcode):
+def delete(main,storage, barcode):
     pass
 
-def add_storage(storage):
+def look(main, storage, barcode):
     pass
 
-def delete_storage(storage):
+def add_storage(main, storage):
     pass
 
-def clear_storage(storage):
+def delete_storage(main, storage):
     pass
 
-def look_storage(storage):
+def clear_storage(main, storage):
+    pass
+
+def look_storage(main, storage):
     pass
 
 def help():
