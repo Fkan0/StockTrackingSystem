@@ -45,8 +45,103 @@ page_list = {
     "0 - Çıkış" : {}
 }
 
+#HATA AYIKLAMA KOMUTLARI
 
 
+
+#ÜRÜN İŞLEMLERİ FONKSİYONLARI
+def new_item(barcode, price, *, stock=0 ,item_name=None, add_price=None, category=None, supplier=None):
+    pass
+
+def del_item(barcode):
+    pass
+
+def update_item(barcode, *, price=None, item_name=None, add_price=None, category=None, supplier=None ):
+    pass
+
+def look_item(barcode):
+    pass
+
+def item_list():
+    pass
+
+
+
+#STOK İŞLEMLERİ FONKSİYONLARI
+def add_stock_item(barcode, stock=1, *, price=None):
+    pass
+
+def del_stock_item(barcode, stock=1):
+    pass
+
+def danger_stock():
+    pass
+
+def transaction_history():
+    pass
+
+
+
+#SATIŞ İŞLEMLERİ FONKSİYONLARI
+def sales(barcode):
+    pass
+
+def sales_history():
+    pass
+
+def return_history():
+    pass
+
+
+#RAPOR FONKSİYONLARI
+def most_sales_item():
+    pass
+
+def least_sales_item():
+    pass
+
+def daily_sales_report():
+    pass
+
+def profit_loss():
+    pass
+
+def total_worth_stok():
+    pass
+
+
+
+#AYAR FONKSİYONLARI
+def backup():
+    pass
+
+def theme():
+    pass
+
+def date_setting():
+    pass
+
+def clear_log():
+    pass
+
+
+
+#TEMEL KOMUT FONKSİYONLARI
+def help():
+    pass
+
+def quide():
+    pass
+
+def local():
+    pass
+
+
+#İŞLETİM KOMUTLARI
+
+
+
+#SAYFA KOMUTLARI LİSTESI
 page_command = {
     "1" : {
         "1" : {},
