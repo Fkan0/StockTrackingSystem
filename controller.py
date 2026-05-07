@@ -67,10 +67,11 @@ def add(main, storage, barcode, number):
     
     #Stok yenileme bloğu
     item_name = main[storage][barcode]["item_name"]
+    main[storage][barcode]["stock"] += int(number)
     stock_number = main[storage][barcode]["stock"]
-    stock_number += int(number)
-    print(f"function: başarıyla '{item_name}' ürününün stok sayısı '{number}' arttırıldı")
-    print(f"function: {item_name} ürününün güncel stok sayısı {stock_number}")
+
+    print(f"process: başarıyla '{item_name}' ürününün stok sayısı '{number}' arttırıldı")
+    print(f"process: {item_name}' ürününün güncel stok sayısı {stock_number}")
 
 #Fiyat yenileme foksiyonu
 def new_price(main, storage, barcode, price):

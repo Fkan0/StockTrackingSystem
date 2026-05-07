@@ -1,9 +1,20 @@
 import controller
-import stock
+import json
+import os
 
+def veriyi_hazirla():
+    if not os.path.exists("database.json"):
+        # Eğer stock.py'den kurtulmak istersen buraya boş bir sözlük 
+        # veya varsayılan bir depo yapısı yazabilirsin:
+        # varsayilan = {"ana_depo": {}}
+        import stock # Sadece burada, dosya yoksa geçici olarak çağır
+        with open("database.json", "w", encoding="utf-8") as f:
+            json.dump(stock.storage, f, indent=4, ensure_ascii=False)
+    
+    with open("database.json", "r", encoding="utf-8") as f:
+        return json.load(f)
 
-#Uygulama hazırlanıyor
-storage_list = list(stock.storage.keys())
+main_data = veriyi_hazirla()
 
 
 #Uygulama başlatılıyor
@@ -14,7 +25,11 @@ while True:
     print("---  ANASAYFA ---\n")
 
     locate = "anasayfa"
-    command = input(": ")
-    main = stock.storage
+    command = input(">>> ")
+    print("") #Space oluşturma satırı
 
-    controller.command_player(command, controller.command_list, main)
+    controller.command_player(command, controller.command_list, main_data)
+
+    # Her işlemden sonra veriyi otomatik kaydet
+    with open("database.json", "w", encoding="utf-8") as f:
+        json.dump(main_data, f, indent=4, ensure_ascii=False)
