@@ -160,7 +160,7 @@ def guide():
 
 
 #Komut yürütücü fonksiyon
-def command_player(command, list):
+def command_player(command, list, main):
     if not command:
         print("system: eksik komut girildi")
         return
@@ -179,9 +179,11 @@ def command_player(command, list):
         code = list[command_key]
 
         if isinstance(code, dict):
-            command_player(command_parameter, code)
+            command_player(command_parameter, code, main)
         
         elif callable(code):
+            command_parameter.insert(0, main)
+
             try:
                 code(*command_parameter)
             except TypeError as e:
