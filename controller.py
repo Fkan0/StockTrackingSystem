@@ -1,5 +1,5 @@
 def add(storage, barcode, number):
-    pass
+    print("başarılı")
 
 def new_price(storage, barcode, price):
     pass
@@ -31,7 +31,38 @@ def help():
 def guide():
     pass
 
+#Komut yürütücü fonksiyon
+def command_player(command, list):
+    if not command:
+        print("system: eksik komut girildi")
+        return
+    
+    if isinstance(command, str):
+        command_parts = command.split()
 
+    else:
+        command_parts = command
+
+    command_key = command_parts[0]
+    command_parameter = command_parts[1:]
+    
+
+    if command_key in list:
+        code = list[command_key]
+
+        if isinstance(code, dict):
+            command_player(command_parameter, code)
+        
+        elif callable(code):
+            try:
+                code(*command_parameter)
+            except TypeError as e:
+                print(f"system: pametre hatası: {e}")
+    else:
+        print(f"system: '{command_key}' geçerli bir komut değil")
+
+
+#Komut listesi
 command_list = {
     "ürün" : {
         "ekle" : new_add,
