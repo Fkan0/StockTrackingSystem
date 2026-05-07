@@ -135,6 +135,18 @@ def look_storage(main, storage):
 
 
 
+#Mecvüt depoları listeler
+def storages(main):
+    print(f"mevcut depolarınız: {main}")
+
+
+
+#Bulunulan sayfa konumunu gösterir
+def locate(locate):
+    print(f"system locate: {locate}")
+
+
+
 #Yardım fonksiyonu
 def help():
     pass
@@ -197,5 +209,7 @@ command_list = {
         "depo sil" : delete_storage
     },
     "yardım" : help,
-    "klavuz" : guide
-}
+    "klavuz" : guide,
+    "depolar" : storages,
+    "konum" : locate
+}   
