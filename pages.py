@@ -64,3 +64,46 @@ command_list = {
     ("1", "6", "3") : date_setting,
     ("1", "6", "4") : clear_log
 }
+
+#TERMİNAL KOMUTLARI
+terminal_command_list = {
+    "yardım" : help,
+    "klavuz" : about,
+    "ürün" : {
+        "ekle" : new_item,
+        "sil" : del_item,
+        "güncelle" : update_item,
+        "ara" : look_item,
+        "listele" : item_list
+    },
+    "stok" : {
+        "ekle " : add_stock_item,
+        "sil" : del_stock_item,
+        "kritik" : danger_stock,
+        "hareket" : transaction_history
+    },
+    "kasa" : {
+        "satış" : sales,
+        "geçmişi" : sales_history,
+        "iade" : return_history
+    },
+    "rapor" : {
+        "ençok" : most_sales_item,
+        "enaz" : least_sales_item,
+        "gün" : daily_sales_report,
+        "kar" : profit_loss,
+        "toplam" : total_worth_stok
+    },
+    "kullanıcı" : {
+        "giriş" : login,
+        "çıkış" : logout,
+        "ekle" : new_user,
+        "yetkiler" : user_role
+    },
+    "ayarlar" : {
+        "veritabanı" : backup,
+        "tema" : theme,
+        "tarih" : date_setting,
+        "log" : clear_log
+    }
+}   
