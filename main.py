@@ -67,4 +67,6 @@ def main(locate, code_list):
         else:
             print("system: geçersiz komut b.")    
 
-main(locate, pages.page_keys)
+#main(locate, pages.page_keys)
+
+print(main_data)

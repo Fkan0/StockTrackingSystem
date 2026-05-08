@@ -61,77 +61,78 @@ def error():
 #KOMUT FONKSİYONLARI
 
 #yeni ürün ekler
-def new_item():
-    pass
+def new_item(file, barcode, price):
+    file
+
 #ürün siler
-def del_item():
+def del_item(file):
     pass
 #ürün günceller
-def update_item():
+def update_item(file):
     pass
 #ürünü gösterir
-def look_item():
+def look_item(file):
     pass
 #tüm ürünleri listeler
-def item_list():
+def item_list(file):
     pass
 #stoğa ürün girişi yapar
-def add_stock_item():
+def add_stock_item(file):
     pass
 #stoktan ürün çıkışı yapar
-def del_stock_item():
+def del_stock_item(file):
     pass
 #kritik stokları gösterir
-def danger_stock():
+def danger_stock(file):
     pass
 #stok hareket geçmişini gösterir
-def transaction_history():
+def transaction_history(file):
     pass
 #satış yapar
-def sales():
+def sales(file):
     pass
 #satış geçmişini gösterir
-def sales_history():
+def sales_history(file):
     pass
 #iade işlemi yapar
-def return_history():
+def return_history(file):
     pass
 #en çok satan ürünleri gösterir
-def most_sales_item():
+def most_sales_item(file):
     pass
 #en az satan ürünleri gösterir
-def least_sales_item():
+def least_sales_item(file):
     pass
 #günlük satış raporu gösterir
-def daily_sales_report():
+def daily_sales_report(file):
     pass
 #kar zarar hesabı yapar
-def profit_loss():
+def profit_loss(file):
     pass        
 #toplam stok değerini gösterir
-def total_worth_stok():
+def total_worth_stok(f):
     pass
 #giriş yapar
-def login():
+def login(file):
     pass
 #çıkış yapar
-def logout():
+def logout(file):
     pass 
 #yeni kullanıcı ekler
-def new_user():
+def new_user(file):
     pass
 #kullanıcı yetkilerini gösterir
-def user_role():
+def user_role(file):
     pass
 #veritabanı yedeği alır
-def backup():
+def backup(file):
     pass
 #tema değiştirir
-def theme():
+def theme(file):
     pass
 #tarih / saat ayarları yapar
-def date_setting():
+def date_setting(file):
     pass
 #logları temizler
-def clear_log():
+def clear_log(file):
     pass
